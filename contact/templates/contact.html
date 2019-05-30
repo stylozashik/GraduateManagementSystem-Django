@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "navbar.html" %}
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 ofset-col-3">
+			
+		</div>
+		<div class="col-md-4 ofset-col-3">
+			<div class="card" style="width: 30rem;">
+			  <div class="card-body">
+			    <h5 class="card-title">Send Message</h5>
+			    <hr class="my-4">
+					<div class="form-group">
+					<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+						{{ form.as_p}}
+						<button class="btn btn-outline-secondary" type="submit" value="save">SEND</button>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 ofset-col-3">
+			
+		</div>
+	</div>
+</div>
+
+{% include "footer.html" %}
+
+{% endblock %}

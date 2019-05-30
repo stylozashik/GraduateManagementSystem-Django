@@ -1,0 +1,68 @@
+{% load static %}
+{% include 'base.html' %}
+{% block content %}
+{% include 'navbar.html' %}
+{% include 'banner.html' %}
+
+
+<div class = "container">
+	<div class="row">
+		{% for x in student %}
+			<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+					  <div class="card-body">
+					  	<h4 class="card-subtitle mb-2 text-muted text-center"><strong><i class="far fa-user-circle"></i> </strong> {{ x.first_name }} {{ x.last_name }}</h6><hr class="my-4">
+					   
+					    {% if x.image %}
+					    	<img class="card-img-top " src="{{ x.image.url }}"><hr class="my-4">
+					    {% else %}
+					    	<img class="card-img-top" src="{% static "images/hat.png" %}">
+					    {% endif %}
+				
+					     <h5 class="card-title"><strong>ID : </strong> {{ x.student_id }}</h5>
+					    <hr class="my-4">
+					    <p class="card-text">Father's Name : <strong>{{ x.father_name }}</strong></p>
+					    <p class="card-text">Mother's Name : <strong>{{ x.mother_name }}</strong></p>
+					    <p class="card-text">Address : <strong>{{ x.Permanent_address }}</strong></p>
+					   <p class="card-text"><strong><i class="fas fa-phone"></i> {{ x.contact }}</strong> </p>
+					   <p class="card-text">Avg CGPA : <strong>{{ x.avg_cgpa }}</strong></p>
+					   
+
+					   {% if x.grade1 %}
+					   		<p class="card-text">Grade : <strong>A+</strong></p>
+					   {% elif x.grade2 %}
+					   		<p class="card-text">Grade : <strong>A</strong></p>
+					   {% elif x.grade3 %}
+					   		<p class="card-text">Grade : <strong>A-</strong></p>
+					   {% elif x.grade4 %}
+					   		<p class="card-text">Grade : <strong>B+</strong></p>
+					   {% elif x.grade5 %}
+					   		<p class="card-text">Grade : <strong>B</strong></p>
+					   {% elif x.grade6 %}
+					   		<p class="card-text">Grade : <strong>B-</strong></p>
+					   {% elif x.grade7 %}
+					   		<p class="card-text">Grade : <strong>C+</strong></p>
+					   {% elif x.grade8 %}
+					   		<p class="card-text">Grade : <strong>C</strong></p>
+					   {% elif x.grade9 %}
+					   		<p class="card-text">Grade : <strong>D</strong></p>
+					   {% else %}
+					   		<p class="card-text">Grade : <strong>No Grade</strong></p>
+					   {% endif %}
+
+					   {% if x.passed %}
+					   		<p class="card-text text-success">Result : <strong>Passed</strong></p>
+					   {% else %}
+					   		<p class="card-text text-danger">Result : <strong>Failed</strong></p>
+					   {% endif %}
+
+					  </div>
+				  </div>
+				  </br>
+			</div>
+		{% endfor %}
+	</br>
+</div>
+
+{% include 'footer.html' %}
+{% endblock%}

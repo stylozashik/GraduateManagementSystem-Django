@@ -1,0 +1,21 @@
+{% load static %}
+<div class = "container">
+	<div class="row">
+		{% for x in student %}
+		<div class="col-md-4">
+			<div class="card" style="width: 18rem;">
+				  <div class="card-body">
+				    <h5 class="card-title"><strong>ID : </strong> {{ x.student_id }}</h5>
+				     <hr class="my-4">
+				    <img class="card-img-top" src="{% static "images/hat.png" %}"><hr class="my-4">
+				    <h6 class="card-subtitle mb-2 text-muted"><strong><i class="far fa-user-circle"></i> </strong> {{ x.first_name }} {{ x.last_name }}</h6>
+				    <hr class="my-4">
+				   <p class="card-text"><strong><i class="fas fa-phone"></i> {{ x.contact }}</strong> </p>
+				   <p class="card-text">Avg CGPA : <strong>{{ x.avg_cgpa }}</strong></p>
+				  </div>
+			  </div>
+			  </br>
+		</div>
+		{% endfor %}
+	</br>
+</div>
